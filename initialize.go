@@ -22,6 +22,6 @@ func initialize(Task *MonitorSession) {
 	json.Unmarshal(products, &Task.oldResponse)
 
 	if !monitor(Task) {
-		initialize(Task) //re-init when monitor goes down - loops itself approach
+		initialize(Task) //re-init when monitor goes down - loops itself approach (this will fire when bearer token needs renewal)
 	}
 }

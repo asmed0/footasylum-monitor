@@ -30,5 +30,5 @@ func monitor(Task *MonitorSession) bool {
 			fmt.Printf("New product loaded with pid: %s\n", Task.newResponse.Data.Products.Products[0].Product.Productid)
 		}
 	}
-	return false
+	return false //happens when bearer token is expired
 }
