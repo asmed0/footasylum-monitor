@@ -17,7 +17,6 @@ func getToken(Task *MonitorSession) {
 
 	payload := strings.NewReader(`username=footasylum-b12cf60a-0db8-40a1-aaf6-04e6ffe4e342&password=553c3198-652a-4355-97b9-d6b0e5a6e15d&grant_type=password`)
 
-	client := &http.Client{}
 	req, err := http.NewRequest(method, url, payload)
 
 	if err != nil {
@@ -30,7 +29,7 @@ func getToken(Task *MonitorSession) {
 	req.Header.Add("user-agent", "Footasylum/1355 CFNetwork/1209 Darwin/20.2.0")
 	req.Header.Add("accept-language", "sv-se")
 
-	res, err := client.Do(req)
+	res, err := Task.Client.Do(req)
 	if err != nil {
 		fmt.Println(err)
 		return
