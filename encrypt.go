@@ -37,12 +37,7 @@ func PKCS5Padding(ciphertext []byte, blockSize int) []byte {
 	return append(ciphertext, padtext...)
 }
 
-func PKCS5Trimming(encrypt []byte) []byte {
-	padding := encrypt[len(encrypt)-1]
-	return encrypt[:len(encrypt)-int(padding)]
-}
-
-var seededRand *rand.Rand = rand.New(
+var seededRand = rand.New(
 	rand.NewSource(time.Now().UnixNano()))
 
 func StringWithCharset(length int, charset string) string {

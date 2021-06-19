@@ -42,5 +42,8 @@ func getToken(Task *MonitorSession) {
 		return
 	}
 
-	json.Unmarshal(body, &Task.oauthData)
+	err = json.Unmarshal(body, &Task.oauthData)
+	if err != nil {
+		return
+	}
 }
